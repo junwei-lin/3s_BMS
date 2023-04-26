@@ -391,15 +391,25 @@
               <FileType>1</FileType>
               <FilePath>.\main.c</FilePath>
             </File>
+            <File>
+              <FileName>main.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\main.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
           <GroupName>Hardware</GroupName>
           <Files>
             <File>
-              <FileName>gpio.c</FileName>
+              <FileName>stc_gpio.c</FileName>
               <FileType>1</FileType>
-              <FilePath>D:\资料\自制\三串BMS\软件\3s_BMS_Project\Hardware\GPIO\gpio.c</FilePath>
+              <FilePath>..\Hardware\STC_GPIO\stc_gpio.c</FilePath>
+            </File>
+            <File>
+              <FileName>stc_gpio.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Hardware\STC_GPIO\stc_gpio.h</FilePath>
             </File>
           </Files>
         </Group>
