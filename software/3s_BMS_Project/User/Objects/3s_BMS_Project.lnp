@@ -1,0 +1,7 @@
+".\Objects\STARTUP.obj",
+".\Objects\main.obj",
+".\Objects\gpio.obj",
+".\Objects\pit.obj",
+".\Objects\stc_gpio.obj" 
+TO ".\Objects\3s_BMS_Project" 
+PRINT(".\Listings\3s_BMS_Project.m51") RAMSIZE(256) 

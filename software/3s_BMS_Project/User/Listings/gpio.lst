@@ -1,0 +1,64 @@
+C51 COMPILER V9.60.0.0   GPIO                                                              05/22/2023 13:37:17 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE GPIO
+OBJECT MODULE PLACED IN .\Objects\gpio.obj
+COMPILER INVOKED BY: D:\KEIL5\C51\BIN\C51.EXE ..\Hardware\GPIO\gpio.c LARGE OPTIMIZE(8,SPEED) BROWSE INCDIR(..\Lib;..\Li
+                    -b\STC_GPIO;..\Hardware\GPIO) DEBUG OBJECTEXTEND PRINT(.\Listings\gpio.lst) OBJECT(.\Objects\gpio.obj)
+
+line level    source
+
+   1          /**
+   2            ******************************************************************************
+   3            * @file    gpio.c
+   4            * @author  junwei-lin
+   5            * @version V1.0.0
+   6            * @date    04/27/2023
+   7            * @brief   This file contains all the functions prototypes for the GPIO 
+   8            *          firmware functions.
+   9            ******************************************************************************
+  10          */
+  11          #include "gpio.h"
+  12          #include "stc_gpio.h"
+  13          
+  14          
+  15          void SetPowerHld(u8 state){
+  16   1              P37 = state;
+  17   1      }
+  18          void PowerHLD_GPIO_Init(void){
+  19   1              STC_GPIO_INIT_STRUCT PowerHldGPIO_InitStruct;
+  20   1              
+  21   1              PowerHldGPIO_InitStruct.STC_GPIO_PROT = STC_GPIO_PROT3;
+  22   1              PowerHldGPIO_InitStruct.STC_GPIO_PIN = STC_GPIO_PIN7;
+  23   1              PowerHldGPIO_InitStruct.STC_GPIO_MODE = STC_GPIO_MODE_OUTPP;
+  24   1              PowerHldGPIO_InitStruct.STC_GPIO_ROLL_SPEED_STATE = STC_DISABLE;
+  25   1              PowerHldGPIO_InitStruct.STC_GPIO_DRIVER_CUR_STATE = STC_DISABLE;
+  26   1              
+  27   1              STC_GPIO_Init(&PowerHldGPIO_InitStruct);
+  28   1      }
+  29          
+  30          void PowerKey_GPIO_Init(void){
+  31   1              STC_GPIO_INIT_STRUCT PowerKeyGPIO_InitStruct;
+  32   1              
+  33   1              PowerKeyGPIO_InitStruct.STC_GPIO_PROT = STC_GPIO_PROT4;
+  34   1              PowerKeyGPIO_InitStruct.STC_GPIO_PIN = STC_GPIO_PIN1;
+  35   1              PowerKeyGPIO_InitStruct.STC_GPIO_MODE = STC_GPIO_MODE_DUAL;
+  36   1              PowerKeyGPIO_InitStruct.STC_GPIO_ROLL_SPEED_STATE = STC_DISABLE;
+  37   1              PowerKeyGPIO_InitStruct.STC_GPIO_DRIVER_CUR_STATE = STC_DISABLE;
+  38   1              
+  39   1              STC_GPIO_Init(&PowerKeyGPIO_InitStruct);
+  40   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     64    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----      10
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

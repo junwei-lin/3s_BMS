@@ -49,7 +49,7 @@
           <OutputName>3s_BMS_Project</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
-          <CreateHexFile>0</CreateHexFile>
+          <CreateHexFile>1</CreateHexFile>
           <DebugInformation>1</DebugInformation>
           <BrowseInformation>1</BrowseInformation>
           <ListingPath>.\Listings\</ListingPath>
@@ -324,7 +324,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath></IncludePath>
+              <IncludePath>..\Lib;..\Lib\STC_GPIO;..\Hardware\GPIO</IncludePath>
             </VariousControls>
           </C51>
           <Ax51>
@@ -402,14 +402,24 @@
           <GroupName>Hardware</GroupName>
           <Files>
             <File>
-              <FileName>stc_gpio.c</FileName>
+              <FileName>gpio.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Hardware\STC_GPIO\stc_gpio.c</FilePath>
+              <FilePath>..\Hardware\GPIO\gpio.c</FilePath>
             </File>
             <File>
-              <FileName>stc_gpio.h</FileName>
+              <FileName>gpio.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\Hardware\STC_GPIO\stc_gpio.h</FilePath>
+              <FilePath>..\Hardware\GPIO\gpio.h</FilePath>
+            </File>
+            <File>
+              <FileName>pit.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Hardware\PIT\pit.c</FilePath>
+            </File>
+            <File>
+              <FileName>pit.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Hardware\PIT\pit.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -425,6 +435,16 @@
               <FileName>STC8A8K64D4.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\Lib\STC8A8K64D4.h</FilePath>
+            </File>
+            <File>
+              <FileName>stc_gpio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Lib\STC_GPIO\stc_gpio.c</FilePath>
+            </File>
+            <File>
+              <FileName>stc_gpio.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Lib\STC_GPIO\stc_gpio.h</FilePath>
             </File>
           </Files>
         </Group>

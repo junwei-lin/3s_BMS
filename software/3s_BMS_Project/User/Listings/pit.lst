@@ -1,0 +1,24 @@
+C51 COMPILER V9.60.0.0   PIT                                                               05/22/2023 13:33:40 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE PIT
+OBJECT MODULE PLACED IN .\Objects\pit.obj
+COMPILER INVOKED BY: D:\KEIL5\C51\BIN\C51.EXE ..\Hardware\PIT\pit.c LARGE OPTIMIZE(8,SPEED) BROWSE INCDIR(..\Lib;..\Lib\
+                    -STC_GPIO;..\Hardware\GPIO) DEBUG OBJECTEXTEND PRINT(.\Listings\pit.lst) OBJECT(.\Objects\pit.obj)
+
+line level    source
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   ----    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

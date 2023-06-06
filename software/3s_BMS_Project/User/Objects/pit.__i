@@ -1,0 +1,1 @@
+"..\Hardware\PIT\pit.c" LARGE OPTIMIZE (8,SPEED) BROWSE INCDIR(..\Lib;..\Lib\STC_GPIO;..\Hardware\GPIO) DEBUG OBJECTEXTEND PRINT(.\Listings\pit.lst) OBJECT(.\Objects\pit.obj)

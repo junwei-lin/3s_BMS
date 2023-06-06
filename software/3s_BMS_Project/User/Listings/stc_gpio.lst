@@ -1,0 +1,283 @@
+C51 COMPILER V9.60.0.0   STC_GPIO                                                          04/27/2023 18:37:38 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE STC_GPIO
+OBJECT MODULE PLACED IN .\Objects\stc_gpio.obj
+COMPILER INVOKED BY: D:\KEIL5\C51\BIN\C51.EXE ..\Lib\STC_GPIO\stc_gpio.c LARGE OPTIMIZE(8,SPEED) BROWSE INCDIR(..\Lib;..
+                    -\Lib\STC_GPIO;..\Hardware\GPIO) DEBUG OBJECTEXTEND PRINT(.\Listings\stc_gpio.lst) OBJECT(.\Objects\stc_gpio.obj)
+
+line level    source
+
+   1          /**
+   2            ******************************************************************************
+   3            * @file    stc_gpio.C
+   4            * @author  junwei-lin
+   5            * @version V1.0.0
+   6            * @date    04/27/2023
+   7            * @brief   This file contains all the functions prototypes for the STC GPIO 
+   8            *          firmware functions.
+   9            ******************************************************************************
+  10          */
+  11          
+  12          #include "stc_gpio.h"
+  13          
+  14          
+  15          void STC_GPIO_Init(STC_GPIO_INIT_STRUCT *STC_GPIO_InitStruct){
+  16   1              switch(STC_GPIO_InitStruct->STC_GPIO_PROT){
+  17   2                      case STC_GPIO_PROT0:{
+  18   3                              switch(STC_GPIO_InitStruct->STC_GPIO_MODE){
+  19   4                                      case STC_GPIO_MODE_DUAL:{
+  20   5                                              P0M0 &= ~(0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+  21   5                                              P0M1 &= ~(0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+  22   5                                      }break;
+  23   4                                      case STC_GPIO_MODE_OUTPP:{
+  24   5                                              P0M0 |=  (0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+  25   5                                              P0M1 &= ~(0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);           
+  26   5                                      }break;
+  27   4                                      case STC_GPIO_MODE_OUTOD:{
+  28   5                                              P0M0 &= ~(0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+  29   5                                              P0M1 |=  (0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+  30   5                                      }break;
+  31   4                                      case STC_GPIO_MODE_HRES:{
+  32   5                                              P0M0 |=  (0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+  33   5                                              P0M1 |=  (0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+  34   5                                      }break;
+  35   4                                      default: break;
+  36   4                              }       
+  37   3                              if(!STC_GPIO_InitStruct->STC_GPIO_ROLL_SPEED_STATE)
+  38   3                                      P0SR |= (0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+  39   3                              else
+  40   3                                      P0SR &= ~(0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+  41   3                              if(!STC_GPIO_InitStruct->STC_GPIO_DRIVER_CUR_STATE)
+  42   3                                      P0DR |= (0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+  43   3                              else
+  44   3                                      P0DR &= ~(0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);                           
+  45   3                      }break;
+  46   2                      case STC_GPIO_PROT1:{
+  47   3                              switch(STC_GPIO_InitStruct->STC_GPIO_MODE){
+  48   4                                      case STC_GPIO_MODE_DUAL:{
+  49   5                                              P1M0 &= ~(0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+  50   5                                              P1M1 &= ~(0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+  51   5                                      }break;
+  52   4                                      case STC_GPIO_MODE_OUTPP:{
+  53   5                                              P1M0 |=  (0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+  54   5                                              P1M1 &= ~(0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);           
+C51 COMPILER V9.60.0.0   STC_GPIO                                                          04/27/2023 18:37:38 PAGE 2   
+
+  55   5                                      }break;
+  56   4                                      case STC_GPIO_MODE_OUTOD:{
+  57   5                                              P1M0 &= ~(0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+  58   5                                              P1M1 |=  (0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+  59   5                                      }break;
+  60   4                                      case STC_GPIO_MODE_HRES:{
+  61   5                                              P1M0 |=  (0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+  62   5                                              P1M1 |=  (0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+  63   5                                      }break;
+  64   4                                      default: break;
+  65   4                              }                       
+  66   3                              if(!STC_GPIO_InitStruct->STC_GPIO_ROLL_SPEED_STATE)
+  67   3                                      P1SR |= (0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+  68   3                              else
+  69   3                                      P1SR &= ~(0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+  70   3                              if(!STC_GPIO_InitStruct->STC_GPIO_DRIVER_CUR_STATE)
+  71   3                                      P1DR |= (0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+  72   3                              else
+  73   3                                      P1DR &= ~(0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);                           
+  74   3                      }break;
+  75   2                      case STC_GPIO_PROT2:{
+  76   3                              switch(STC_GPIO_InitStruct->STC_GPIO_MODE){
+  77   4                                      case STC_GPIO_MODE_DUAL:{
+  78   5                                              P2M0 &= ~(0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+  79   5                                              P2M1 &= ~(0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+  80   5                                      }break;
+  81   4                                      case STC_GPIO_MODE_OUTPP:{
+  82   5                                              P2M0 |=  (0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+  83   5                                              P2M1 &= ~(0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);           
+  84   5                                      }break;
+  85   4                                      case STC_GPIO_MODE_OUTOD:{
+  86   5                                              P2M0 &= ~(0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+  87   5                                              P2M1 |=  (0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+  88   5                                      }break;
+  89   4                                      case STC_GPIO_MODE_HRES:{
+  90   5                                              P2M0 |=  (0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+  91   5                                              P2M1 |=  (0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+  92   5                                      }break;
+  93   4                                      default: break;
+  94   4                              }                       
+  95   3                              if(!STC_GPIO_InitStruct->STC_GPIO_ROLL_SPEED_STATE)
+  96   3                                      P2SR |= (0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+  97   3                              else
+  98   3                                      P2SR &= ~(0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+  99   3                              if(!STC_GPIO_InitStruct->STC_GPIO_DRIVER_CUR_STATE)
+ 100   3                                      P2DR |= (0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+ 101   3                              else
+ 102   3                                      P2DR &= ~(0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);                           
+ 103   3                      }break;
+ 104   2                      case STC_GPIO_PROT3:{
+ 105   3                              switch(STC_GPIO_InitStruct->STC_GPIO_MODE){
+ 106   4                                      case STC_GPIO_MODE_DUAL:{
+ 107   5                                              P3M0 &= ~(0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+ 108   5                                              P3M1 &= ~(0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+ 109   5                                      }break;
+ 110   4                                      case STC_GPIO_MODE_OUTPP:{
+ 111   5                                              P3M0 |=  (0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+ 112   5                                              P3M1 &= ~(0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);           
+ 113   5                                      }break;
+ 114   4                                      case STC_GPIO_MODE_OUTOD:{
+ 115   5                                              P3M0 &= ~(0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+ 116   5                                              P3M1 |=  (0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+C51 COMPILER V9.60.0.0   STC_GPIO                                                          04/27/2023 18:37:38 PAGE 3   
+
+ 117   5                                      }break;
+ 118   4                                      case STC_GPIO_MODE_HRES:{
+ 119   5                                              P3M0 |=  (0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+ 120   5                                              P3M1 |=  (0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+ 121   5                                      }break;
+ 122   4                                      default: break;
+ 123   4                              }                       
+ 124   3                              if(!STC_GPIO_InitStruct->STC_GPIO_ROLL_SPEED_STATE)
+ 125   3                                      P3SR |= (0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+ 126   3                              else
+ 127   3                                      P3SR &= ~(0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+ 128   3                              if(!STC_GPIO_InitStruct->STC_GPIO_DRIVER_CUR_STATE)
+ 129   3                                      P3DR |= (0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+ 130   3                              else
+ 131   3                                      P3DR &= ~(0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);                           
+ 132   3                      }break;
+ 133   2                      case STC_GPIO_PROT4:{
+ 134   3                              switch(STC_GPIO_InitStruct->STC_GPIO_MODE){
+ 135   4                                      case STC_GPIO_MODE_DUAL:{
+ 136   5                                              P4M0 &= ~(0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+ 137   5                                              P4M1 &= ~(0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+ 138   5                                      }break;
+ 139   4                                      case STC_GPIO_MODE_OUTPP:{
+ 140   5                                              P4M0 |=  (0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+ 141   5                                              P4M1 &= ~(0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);           
+ 142   5                                      }break;
+ 143   4                                      case STC_GPIO_MODE_OUTOD:{
+ 144   5                                              P4M0 &= ~(0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+ 145   5                                              P4M1 |=  (0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+ 146   5                                      }break;
+ 147   4                                      case STC_GPIO_MODE_HRES:{
+ 148   5                                              P4M0 |=  (0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+ 149   5                                              P4M1 |=  (0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+ 150   5                                      }break;
+ 151   4                                      default: break;
+ 152   4                              }                       
+ 153   3                              if(!STC_GPIO_InitStruct->STC_GPIO_ROLL_SPEED_STATE)
+ 154   3                                      P4SR |= (0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+ 155   3                              else
+ 156   3                                      P4SR &= ~(0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+ 157   3                              if(!STC_GPIO_InitStruct->STC_GPIO_DRIVER_CUR_STATE)
+ 158   3                                      P4DR |= (0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+ 159   3                              else
+ 160   3                                      P4DR &= ~(0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);                           
+ 161   3                      }break;
+ 162   2                      case STC_GPIO_PROT5:{
+ 163   3                              switch(STC_GPIO_InitStruct->STC_GPIO_MODE){
+ 164   4                                      case STC_GPIO_MODE_DUAL:{
+ 165   5                                              P5M0 &= ~(0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+ 166   5                                              P5M1 &= ~(0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+ 167   5                                      }break;
+ 168   4                                      case STC_GPIO_MODE_OUTPP:{
+ 169   5                                              P5M0 |=  (0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+ 170   5                                              P5M1 &= ~(0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);           
+ 171   5                                      }break;
+ 172   4                                      case STC_GPIO_MODE_OUTOD:{
+ 173   5                                              P5M0 &= ~(0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+ 174   5                                              P5M1 |=  (0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+ 175   5                                      }break;
+ 176   4                                      case STC_GPIO_MODE_HRES:{
+ 177   5                                              P5M0 |=  (0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+ 178   5                                              P5M1 |=  (0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+C51 COMPILER V9.60.0.0   STC_GPIO                                                          04/27/2023 18:37:38 PAGE 4   
+
+ 179   5                                      }break;
+ 180   4                                      default: break;
+ 181   4                              }       
+ 182   3                              if(!STC_GPIO_InitStruct->STC_GPIO_ROLL_SPEED_STATE)
+ 183   3                                      P5SR |= (0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+ 184   3                              else
+ 185   3                                      P5SR &= ~(0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+ 186   3                              if(!STC_GPIO_InitStruct->STC_GPIO_DRIVER_CUR_STATE)
+ 187   3                                      P5DR |= (0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+ 188   3                              else
+ 189   3                                      P5DR &= ~(0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);                           
+ 190   3                      }break;
+ 191   2                      case STC_GPIO_PROT6:{
+ 192   3                              switch(STC_GPIO_InitStruct->STC_GPIO_MODE){
+ 193   4                                      case STC_GPIO_MODE_DUAL:{
+ 194   5                                              P6M0 &= ~(0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+ 195   5                                              P6M1 &= ~(0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+ 196   5                                      }break;
+ 197   4                                      case STC_GPIO_MODE_OUTPP:{
+ 198   5                                              P6M0 |=  (0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+ 199   5                                              P6M1 &= ~(0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);           
+ 200   5                                      }break;
+ 201   4                                      case STC_GPIO_MODE_OUTOD:{
+ 202   5                                              P6M0 &= ~(0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+ 203   5                                              P6M1 |=  (0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+ 204   5                                      }break;
+ 205   4                                      case STC_GPIO_MODE_HRES:{
+ 206   5                                              P6M0 |=  (0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+ 207   5                                              P6M1 |=  (0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+ 208   5                                      }break;
+ 209   4                                      default: break;
+ 210   4                              }                       
+ 211   3                              if(!STC_GPIO_InitStruct->STC_GPIO_ROLL_SPEED_STATE)
+ 212   3                                      P6SR |= (0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+ 213   3                              else
+ 214   3                                      P6SR &= ~(0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+ 215   3                              if(!STC_GPIO_InitStruct->STC_GPIO_DRIVER_CUR_STATE)
+ 216   3                                      P6DR |= (0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+ 217   3                              else
+ 218   3                                      P6DR &= ~(0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);                           
+ 219   3                      }break;
+ 220   2                      case STC_GPIO_PROT7:{
+ 221   3                              switch(STC_GPIO_InitStruct->STC_GPIO_MODE){
+ 222   4                                      case STC_GPIO_MODE_DUAL:{
+ 223   5                                              P7M0 &= ~(0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+ 224   5                                              P7M1 &= ~(0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+ 225   5                                      }break;
+ 226   4                                      case STC_GPIO_MODE_OUTPP:{
+ 227   5                                              P7M0 |=  (0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+ 228   5                                              P7M1 &= ~(0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);           
+ 229   5                                      }break;
+ 230   4                                      case STC_GPIO_MODE_OUTOD:{
+ 231   5                                              P7M0 &= ~(0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+ 232   5                                              P7M1 |=  (0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+ 233   5                                      }break;
+ 234   4                                      case STC_GPIO_MODE_HRES:{
+ 235   5                                              P7M0 |=  (0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+ 236   5                                              P7M1 |=  (0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+ 237   5                                      }break;
+ 238   4                                      default: break;
+ 239   4                              }                       
+ 240   3                              if(!STC_GPIO_InitStruct->STC_GPIO_ROLL_SPEED_STATE)
+C51 COMPILER V9.60.0.0   STC_GPIO                                                          04/27/2023 18:37:38 PAGE 5   
+
+ 241   3                                      P7SR |= (0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+ 242   3                              else
+ 243   3                                      P7SR &= ~(0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+ 244   3                              if(!STC_GPIO_InitStruct->STC_GPIO_DRIVER_CUR_STATE)
+ 245   3                                      P7DR |= (0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);
+ 246   3                              else
+ 247   3                                      P7DR &= ~(0x01 << STC_GPIO_InitStruct->STC_GPIO_PIN);                           
+ 248   3                      }break; 
+ 249   2                      default: break;
+ 250   2              }
+ 251   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   2034    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,1 @@
+"..\Lib\STC_GPIO\stc_gpio.c" LARGE OPTIMIZE (8,SPEED) BROWSE INCDIR(..\Lib;..\Lib\STC_GPIO;..\Hardware\GPIO) DEBUG OBJECTEXTEND PRINT(.\Listings\stc_gpio.lst) OBJECT(.\Objects\stc_gpio.obj)
